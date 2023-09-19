@@ -42,7 +42,9 @@ const Item = ({ item, width }) => {     //the item will be the object that comes
                     height="400px"
                     src={`http://localhost:1337${url}`}
                     onClick={() => navigate(`/item/${item.id}`)}
-                    style={{ cursor: 'pointer'}}
+                    style={{ 
+                        cursor: 'pointer',
+                        objectFit: 'cover'}}
                 />
                 <Box
                     display={isHovered ? "block" : "none"}
@@ -88,7 +90,7 @@ const Item = ({ item, width }) => {     //the item will be the object that comes
             </Box>
 
             <Box mt="3px">
-                <Typography mt="10px">{name}</Typography>
+                <Typography mt="0px">{name}</Typography>
                 <Typography fontWeight="bold">£{price}</Typography>
             </Box>
 

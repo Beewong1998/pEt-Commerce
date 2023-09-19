@@ -41,7 +41,10 @@
         "dogs",
         "cats",
         "rabbits",
-        "birds"
+        "birds",
+        "topRated",
+        "newArrivals",
+        "bestSellers"
       ]
     }
   }

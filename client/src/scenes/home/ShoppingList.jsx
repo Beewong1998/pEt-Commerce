@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box, Typography, Tab, Tabs, useMediaQuery } from "@mui/material";
 import Item from "../../components/Item";
 import { setItems } from "../../state";
+import { string } from "yup";
 
 const ShoppingList = () => {
     const dispatch = useDispatch();
@@ -63,7 +64,7 @@ const ShoppingList = () => {
             >
                 <Tab label="ALL" value="all" />
                 <Tab label="DOGS" value="dogItems" />
-                <Tab label="CATS" value="birdItems" />
+                <Tab label="CATS" value="catItems" />
                 <Tab label="RABBITS" value="rabbitItems" />
                 <Tab label="BIRDS" value="birdItems" />
             </Tabs>
@@ -75,19 +76,19 @@ const ShoppingList = () => {
                 rowGap="20px"
                 columnGap="1.33%"
             >
-                {value === "all" && items.map((item) => (   //if value is all then the following code is rendered
+                {value === "all" && items.map((item) => (
                     <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
-                {value === "dogs" && dogItems.map((item) => (
+                {value === "dogItems" && dogItems.map((item) => (
                     <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
-                {value === "cats" && catsItems.map((item) => (
+                {value === "catItems" && catItems.map((item) => (
                     <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
-                {value === "rabbits" && rabbitItems.map((item) => (
+                {value === "rabbitItems" && rabbitItems.map((item) => (
                     <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
-                {value === "birds" && birdItems.map((item) => (
+                {value === "birdItems" && birdItems.map((item) => (
                     <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
             </Box>
