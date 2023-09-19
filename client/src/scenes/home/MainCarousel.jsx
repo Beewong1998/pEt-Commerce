@@ -28,7 +28,7 @@ const MainCarousel = () => {
     //look through react-responsive-carousel documents to see what else you can change
     return (
         <Carousel
-            onClickItem={()=>{navigate(`/summer-sale`)}}
+            onClickItem={()=>{navigate(`/shopPage`)}}
             useKeyboardArrows={true}
             autoFocus={true}
             autoPlay interval="7000"
@@ -43,8 +43,8 @@ const MainCarousel = () => {
                     sx={{
                         position: "absolute",
                         top: "50%",
-                        left: "0",
-                        color: "white",
+                        left: "2%",
+                        color: "black",
                         padding: "5px",
                         zIndex: "10",
                     }}
@@ -58,8 +58,8 @@ const MainCarousel = () => {
                     sx={{
                         position: "absolute",
                         top: "50%",
-                        right: "0",
-                        color: "white",
+                        right: "2%",
+                        color: "black",
                         padding: "5px",
                         zIndex: "10",
                     }}
@@ -82,27 +82,27 @@ const MainCarousel = () => {
                     />
                     <Box
                         color="white"
-                        padding="20px"
-                        borderRadius="1px"
-                        textAlign="left"
-                        backgroundColor="rgb(0, 0, 0, 0.4)"
+                        padding="40px"
+                        borderRadius="8px"
+                        textAlign="center"
+                        backgroundColor="rgb(0, 0, 0, 0.6)"
                         position="absolute"
                         top="46%"
-                        left={isNonMobile ? "10%" : "0"}
+                        left={isNonMobile ? "15%" : "0"}
                         right={isNonMobile ? undefined : "0"}
                         margin={isNonMobile ? undefined : "0 auto"}
                         maxWidth={isNonMobile ? undefined : "240px"}
 
                         
                     >
-                        <Typography color={shades.secondary[200]}>-- NEW ITEMS</Typography>
-                        <Typography variant="h1">Summer Sale</Typography>
+                        <Typography fontWeight="bold" variant="h3" color={shades.secondary[400]}>-- NEW SEASON --</Typography>
+                        <Typography variant="h1">NEW DRIP</Typography>
                         <Typography 
                             fontWeight="bold" 
-                            color={shades.secondary[300]} 
-                            sx={{ textDecoration: "underline"}}
+                            color={shades.secondary[400]}
+                            // variant="h3" 
                         >
-                            Discover More
+                            Discover More Here
                         </Typography>
 
                     </Box>

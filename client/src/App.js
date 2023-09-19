@@ -13,7 +13,7 @@ import Cancel from "./scenes/checkout/Cancel";
 import Navbar from "./scenes/global/Navbar";
 import CartMenu from "./scenes/global/CartMenu";
 import Footer from "./scenes/global/Footer";
-import SummerSale from "./scenes/special/SummerSale"
+import ShopPage from "./scenes/mainShopPage/ShopPage";
 
 //to start each page at the top
 const ScrollToTop = () => {
@@ -34,7 +34,7 @@ function App() {
       <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="summer-sale" element={<SummerSale />} />
+        <Route path="shopPage" element={<ShopPage />} />
         <Route path="item/:itemId" element={<ItemDetails />} />
         <Route path="checkout" element={<Checkout />} />
         <Route path="checkout/success" element={<Confirmation />} />
