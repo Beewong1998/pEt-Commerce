@@ -41,7 +41,7 @@ const ShoppingList = () => {
     );
 
     return (
-        <Box backgroundColor="rgba(250,242,231,255)">
+        <Box backgroundColor="white">
         <Box width="80%" margin="0px auto" padding="80px 0">
             <Typography variant="h2" textAlign="center" paddingTop="30px">
                 Our Products
