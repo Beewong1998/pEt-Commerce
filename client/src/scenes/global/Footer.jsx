@@ -5,7 +5,7 @@ import { shades } from "../../theme";
 const Footer = () => {
     const { palette: { neutral }} = useTheme();
     return (
-        <Box mt="70px" p="40px 0" backgroundColor={neutral.light}>
+        <Box p="50px 0" backgroundColor={neutral.light}>
             <Box
                 width="80%"
                 margin="auto"
@@ -25,7 +25,7 @@ const Footer = () => {
                         Busy Bee
                     </Typography>
                     <div>
-                        Welcome to Busy Bee, the place to be for all your styling needs!
+                        Welcome to Busy Bee, the place to be for all your pet styling needs!
                     </div>
                 </Box>
 
@@ -70,7 +70,7 @@ const Footer = () => {
                         Contact Us
                     </Typography>
                     <Typography mb="30px">
-                        <a href="https://www.linkedin.com/in/kin-wong-50a189189/" target="_blank">LinkedIn</a>
+                        <a href="https://www.linkedin.com/in/kin-wong-50a189189/" target="_blank" rel="noreferrer">LinkedIn</a>
                     </Typography>
                     <Typography mb="30px">
                         Email: <a href="mailto:beewong2014@hotmail.com">Beewong2014@hotmail.com</a>

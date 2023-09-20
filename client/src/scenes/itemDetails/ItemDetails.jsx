@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { IconButton, Box, Typography, Button, Tabs, Tab } from "@mui/material";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { shades } from "../../theme";
@@ -55,6 +54,7 @@ const ItemDetails = () => {
         <Box
             width="80%"
             m="80px auto"
+            pt="30px"
         >
             <Box display="flex" flexWrap="wrap" columnGap="40px"> 
                 {/* IMAGES */}
@@ -72,7 +72,7 @@ const ItemDetails = () => {
                 <Box flex="1 1 50%" mb="40px">
                     <Box display="flex" justifyContent="space-between">
                         <Box>
-                            <a href="/">Home</a> / Item</Box>
+                            <a href="/">Home</a> / <a href="/shopPage">Shop Page</a> / Item</Box>
                     </Box>
 
                     <Box m="65px 0 25px 0">
@@ -122,10 +122,7 @@ const ItemDetails = () => {
                     </Box>
 
                     <Box>
-                        <Box m="20px 0 5px 0" display="flex" >
-                            <FavoriteBorderOutlinedIcon />
-                            <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
-                        </Box>
+
                         <Typography mt="15px">CATEGORIES: {item?.attributes?.category}</Typography>
                     </Box>
                 </Box>

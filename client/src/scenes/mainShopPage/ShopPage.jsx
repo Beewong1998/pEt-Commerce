@@ -1,18 +1,28 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Box, Typography, Tab, Tabs, useMediaQuery, Slider } from "@mui/material";
+import { Box, Typography, Tab, Tabs, Slider, Stack, TextField } from "@mui/material";
 import Item from "../../components/Item";
 import { setItems } from "../../state";
-import { styled } from "@mui/material/styles";
-import { shades } from "../../theme";
-import PriceSlider from "./PriceSlider";
 
 const ShopPage = () => {
     
     const dispatch = useDispatch();
     const [value, setValue] = useState("all");
     const items = useSelector((state) => state.cart.items);
-    const isNonMobile = useMediaQuery("(min-width:600px)");
+
+    const [minNum, setMinNum] = useState(0);
+    const [maxNum, setMaxNum] = useState(20);
+    const minmin = 0;
+    const maxmax = 20;
+    const [priceRangeValue, setPriceRangeValue] = useState([0, 30]);
+
+    const handlePriceRangeChange = (event, newValue) => {
+        setMinNum(newValue[0]);
+        setMaxNum(newValue[1]);
+        setPriceRangeValue(newValue);
+    };
+
+  console.log(priceRangeValue);
 
     const handleChange = (event, newValue) => {
         setValue(newValue);
@@ -33,17 +43,21 @@ const ShopPage = () => {
         getItems();
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
+    const allItems = items.filter( 
+        (item) => item.attributes.price >= minNum && item.attributes.price <= maxNum 
+    )
+
     const dogItems = items.filter(   //items in this case is the items in the cart state
-        (item) => item.attributes.category === "dogs"   //returns a new array with items of 'topRated' category
+        (item) => item.attributes.category === "dogs" && item.attributes.price >= minNum && item.attributes.price <= maxNum 
     );
     const catItems = items.filter(   
-        (item) => item.attributes.category === "cats"   
+        (item) => item.attributes.category === "cats" && item.attributes.price >= minNum && item.attributes.price <= maxNum
     );
     const rabbitItems = items.filter(   
-        (item) => item.attributes.category === "rabbits"   
+        (item) => item.attributes.category === "rabbits" && item.attributes.price >= minNum && item.attributes.price <= maxNum  
     );
     const birdItems = items.filter(   
-        (item) => item.attributes.category === "birds"   
+        (item) => item.attributes.category === "birds" && item.attributes.price >= minNum && item.attributes.price <= maxNum  
     );
 
     function categoryName() {
@@ -60,25 +74,26 @@ const ShopPage = () => {
         }
     }
 
-    function valuetext(value) {
-        return {value};
-      }
-
-    const CustomSlider = styled(Slider)(({ theme }) => ({
-        color: shades.secondary[500], //color of the slider between thumbs
-        "& .MuiSlider-thumb": {
-            backgroundColor: shades.secondary[500] //color of thumbs
-        },
-        "& .MuiSlider-rail": {
-            color: shades.secondary[500] ////color of the slider outside the area between thumbs
-        }
-        }));
-
     return (
         <>
-            <Box width="100%" margin="120px 0" display="flex">
-                <Box width="20%" maxHeight="900px" display="flex" flexDirection="column" position="fixed">
-                    <Typography variant="h3" textAlign="center" mt="91px">
+            <Box 
+                width="100%" 
+                margin="120px 0" 
+                display="flex"
+            >
+                <Box 
+                    width="20%" 
+                    maxHeight="900px" 
+                    display="flex" 
+                    flexDirection="column" 
+                    position="sticky" 
+                    top="0"
+                >
+                    <Typography 
+                        variant="h3" 
+                        textAlign="center" 
+                        mt="130px"
+                    >
                         <b>Categories</b>
                     </Typography>
                     {/* Category Filter */}
@@ -98,30 +113,67 @@ const ShopPage = () => {
                         }}
                     >
                         <Tab label={(<Typography variant="h3">ALL</Typography>)} value="all" />
-                        <Tab label={(<Typography variant="h3">DOGS</Typography>)} value="dogItems" />
                         <Tab label={(<Typography variant="h3">CATS</Typography>)} value="catItems" />
+                        <Tab label={(<Typography variant="h3">DOGS</Typography>)} value="dogItems" />
                         <Tab label={(<Typography variant="h3">RABBITS</Typography>)} value="rabbitItems" />
                         <Tab label={(<Typography variant="h3">BIRDS</Typography>)} value="birdItems" />
                     </Tabs>
                     {/* Price Filter */}
-                    <Typography variant="h3" textAlign="center" mt="91px">
+                    <Typography 
+                        variant="h3" 
+                        textAlign="center" 
+                        mt="80px"
+                    >
                         <b>Price Filter</b>
                     </Typography>
                     <Box margin="25px 40px">
-                        <PriceSlider />                
-                        {/* <CustomSlider
-                            aria-label="Always visible"
-                            defaultValue={15}
-                            getAriaValueText={valuetext}
-                            valueLabelDisplay="on"
-                            size="small"
-                            max={20}
-                            onChange={console.log(valuetext)}
-                            /> */}
+                        <Slider
+                            getAriaLabel={() => "Price range"}
+                            value={priceRangeValue}
+                            onChange={handlePriceRangeChange}
+                            valueLabelDisplay="auto"
+                            min={minmin}
+                            max={maxmax}
+                        />
+                        <Stack 
+                            direction="row" 
+                            justifyContent="space-evenly" 
+                            alignItems="center"
+                        >
+                            <TextField
+                            label="min"
+                            type="number"
+                            variant="outlined"
+                            InputLabelProps={{ shrink: true }}
+                            sx={{ width: "90px" }}
+                            value={minNum}
+                            onChange={(e) => {
+                                setMinNum(Number(e.target.value));
+                                setPriceRangeValue([Number(e.target.value), priceRangeValue[1]]);
+                            }}
+                            />
+                        <Typography>-</Typography>
+                        <TextField
+                        label="max"
+                        type="number"
+                        variant="outlined"
+                        InputLabelProps={{ shrink: true }}
+                        sx={{ width: "90px" }}
+                        value={maxNum}
+                        onChange={(e) => {
+                            setMaxNum(Number(e.target.value));
+                            setPriceRangeValue([priceRangeValue[0], Number(e.target.value)]);
+                        }}
+                        />
+                    </Stack>
                     </Box>
                 </Box>
-                <Box width="80%" position="relative" left="20%">
-                    <Typography variant="h1" textAlign="center" mb="35px">
+                <Box width="80%">
+                    <Typography 
+                        variant="h1" 
+                        textAlign="center" 
+                        mb="35px"
+                    >
                         Category: <b>{categoryName()}</b>
                     </Typography>
                     <Box   //images go into this grid
@@ -131,8 +183,9 @@ const ShopPage = () => {
                         justifyContent="space-around"
                         rowGap="50px"
                         columnGap="1.33%"
+                        minHeight="555px"
                     >
-                        {value === "all" && items.map((item) => (
+                        {value === "all" && allItems.map((item) => (
                             <Item item={item} key={`${item.name}-${item.id}`} />
                         ))}
                         {value === "dogItems" && dogItems.map((item) => (

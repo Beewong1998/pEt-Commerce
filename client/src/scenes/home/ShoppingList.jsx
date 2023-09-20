@@ -23,8 +23,6 @@ const ShoppingList = () => {
         dispatch(setItems(itemsJson.data));
     };
 
-    console.log(typeof(items));
-
     useEffect(() => {
         getItems();
     }, []) // eslint-disable-line react-hooks/exhaustive-deps
@@ -43,9 +41,10 @@ const ShoppingList = () => {
     );
 
     return (
-        <Box width="80%" margin="80px auto">
-            <Typography variant="h3" textAlign="center">
-                Our Featured <b>Products</b>
+        <Box backgroundColor="rgba(250,242,231,255)">
+        <Box width="80%" margin="0px auto" padding="80px 0">
+            <Typography variant="h2" textAlign="center" paddingTop="30px">
+                Our Products
             </Typography>
             <Tabs
                 textColor="primary"
@@ -62,8 +61,8 @@ const ShoppingList = () => {
                 }}
             >
                 <Tab label="ALL" value="all" />
-                <Tab label="DOGS" value="dogItems" />
                 <Tab label="CATS" value="catItems" />
+                <Tab label="DOGS" value="dogItems" />
                 <Tab label="RABBITS" value="rabbitItems" />
                 <Tab label="BIRDS" value="birdItems" />
             </Tabs>
@@ -91,6 +90,7 @@ const ShoppingList = () => {
                     <Item item={item} key={`${item.name}-${item.id}`} />
                 ))}
             </Box>
+        </Box>
         </Box>
     );
 };

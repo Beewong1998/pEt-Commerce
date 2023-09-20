@@ -1,4 +1,4 @@
-import { Box, Button, Divider, Icon, IconButton, Typography } from "@mui/material";
+import { Box, Button, Divider, IconButton, Typography } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import CloseIcon from "@mui/icons-material/Close";
 import AddIcon from "@mui/icons-material/Add";
@@ -71,6 +71,13 @@ const CartMenu = () => {
                                             width="123px"
                                             height="164px"
                                             src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                                            style={{ 
+                                                cursor: 'pointer',
+                                                objectFit: 'cover'
+                                            }}
+                                            onClick={() => {
+                                                navigate(`/item/${item.id}`)
+                                                dispatch(setIsCartOpen({}))}}
                                         />
                                     </Box>
                                     <Box flex="1 1 60%">
