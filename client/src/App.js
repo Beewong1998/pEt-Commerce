@@ -28,7 +28,7 @@ const ScrollToTop = () => {
 }
 
 function App() {
-  return <div className="app">
+  return (
     <BrowserRouter>
       <Navbar />
       <ScrollToTop />
@@ -43,9 +43,7 @@ function App() {
       <CartMenu />
       <Footer />
     </BrowserRouter>
-
-
-  </div>;
+  )
 }
 
 export default App;

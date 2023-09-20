@@ -126,7 +126,7 @@ const ShopPage = () => {
                     >
                         <b>Price Filter</b>
                     </Typography>
-                    <Box margin="25px 40px">
+                    <Box margin="30px 50px">
                         <Slider
                             getAriaLabel={() => "Price range"}
                             value={priceRangeValue}
@@ -139,6 +139,7 @@ const ShopPage = () => {
                             direction="row" 
                             justifyContent="space-evenly" 
                             alignItems="center"
+                            sx={{ marginTop: "20px"}}
                         >
                             <TextField
                             label="min"
@@ -152,20 +153,20 @@ const ShopPage = () => {
                                 setPriceRangeValue([Number(e.target.value), priceRangeValue[1]]);
                             }}
                             />
-                        <Typography>-</Typography>
-                        <TextField
-                        label="max"
-                        type="number"
-                        variant="outlined"
-                        InputLabelProps={{ shrink: true }}
-                        sx={{ width: "90px" }}
-                        value={maxNum}
-                        onChange={(e) => {
-                            setMaxNum(Number(e.target.value));
-                            setPriceRangeValue([priceRangeValue[0], Number(e.target.value)]);
-                        }}
-                        />
-                    </Stack>
+                            <Typography>-</Typography>
+                            <TextField
+                            label="max"
+                            type="number"
+                            variant="outlined"
+                            InputLabelProps={{ shrink: true }}
+                            sx={{ width: "90px" }}
+                            value={maxNum}
+                            onChange={(e) => {
+                                setMaxNum(Number(e.target.value));
+                                setPriceRangeValue([priceRangeValue[0], Number(e.target.value)]);
+                            }}
+                            />
+                        </Stack>
                     </Box>
                 </Box>
                 <Box width="80%">
