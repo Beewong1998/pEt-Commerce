@@ -43,6 +43,7 @@ const Navbar = () => {
                         fontSize: "25px"}}   /* &:hover takes in whatever the class of Box is and applies the hover styles to that class*/
                     color={shades.secondary[500]}
                 >
+                    {/* <img src="https://i.imgur.com/NnEEGeo.png" alt="logo" width="170px"/> */}
                     Busy Bee
                 </Box>
                 <Box   /* creating the box where the icons go */

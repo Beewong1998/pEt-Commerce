@@ -42,8 +42,8 @@ const ShoppingList = () => {
 
     return (
         <Box backgroundColor="white">
-        <Box width="80%" margin="0px auto" padding="80px 0">
-            <Typography variant="h2" textAlign="center" paddingTop="30px">
+        <Box width="80%" margin="-50px auto" padding="80px 0">
+            <Typography variant="h2" textAlign="center" paddingTop="30px" id="tabs">
                 Our Products
             </Typography>
             <Tabs
@@ -60,11 +60,11 @@ const ShoppingList = () => {
                     }
                 }}
             >
-                <Tab label="ALL" value="all" />
-                <Tab label="CATS" value="catItems" />
-                <Tab label="DOGS" value="dogItems" />
-                <Tab label="RABBITS" value="rabbitItems" />
-                <Tab label="BIRDS" value="birdItems" />
+                <Tab label="ALL" value="all" href="#tabs" />
+                <Tab label="CATS" value="catItems" href="#tabs" />
+                <Tab label="DOGS" value="dogItems" href="#tabs" />
+                <Tab label="RABBITS" value="rabbitItems" href="#tabs"/>
+                <Tab label="BIRDS" value="birdItems" href="#tabs" />
             </Tabs>
             <Box   //images go into this grid
                 margin="0 auto"
