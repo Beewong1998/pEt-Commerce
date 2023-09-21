@@ -5,7 +5,7 @@
   },
 
   "scripts": {
-    "start": "node client/src/index.js"
+    "start": "node index.js"
   }
 }
 

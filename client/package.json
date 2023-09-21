@@ -1,7 +1,5 @@
 {
-  "type": "module",
   "name": "client",
-  "homepage": "https://app.herokuapp.com/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
