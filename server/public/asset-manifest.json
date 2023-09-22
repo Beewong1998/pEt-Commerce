@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6d76b2f0.css",
+    "main.js": "/static/js/main.2baa62b1.js",
+    "static/media/aDOGGO BANNER.jpg": "/static/media/aDOGGO BANNER.3a716875e4705df8c1e1.jpg",
+    "static/media/bCAT BANNER.jpg": "/static/media/bCAT BANNER.dc07adb4ee973a172b1f.jpg",
+    "static/media/cBIRD BANNER.jpg": "/static/media/cBIRD BANNER.9fc1b8f13b853349d920.jpg",
+    "index.html": "/index.html",
+    "main.6d76b2f0.css.map": "/static/css/main.6d76b2f0.css.map",
+    "main.2baa62b1.js.map": "/static/js/main.2baa62b1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6d76b2f0.css",
+    "static/js/main.2baa62b1.js"
+  ]
+}
