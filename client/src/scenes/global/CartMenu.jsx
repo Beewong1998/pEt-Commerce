@@ -70,7 +70,7 @@ const CartMenu = () => {
                                             alt={item?.name}
                                             width="123px"
                                             height="164px"
-                                            src={`http://localhost:1337${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+                                            src={`https://orca-app-e4rgt.ondigitalocean.app${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
                                             style={{ 
                                                 cursor: 'pointer',
                                                 objectFit: 'cover'

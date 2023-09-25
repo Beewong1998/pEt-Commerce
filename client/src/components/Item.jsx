@@ -40,7 +40,7 @@ const Item = ({ item, width }) => {     //the item will be the object that comes
                     alt={item.name}
                     width="300px"
                     height="400px"
-                    src={`http://localhost:1337${url}`}
+                    src={`https://orca-app-e4rgt.ondigitalocean.app${url}`} //http://localhost:1337
                     onClick={() => navigate(`/item/${item.id}`)}
                     style={{ 
                         cursor: 'pointer',

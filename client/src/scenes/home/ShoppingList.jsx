@@ -16,7 +16,7 @@ const ShoppingList = () => {
 
     async function getItems() {   //call the backend to grab the information from our Strapi - grabs all the products and items stored in the backend
         const items = await fetch(
-            "http://localhost:1337/api/items?populate=image",
+            "https://orca-app-e4rgt.ondigitalocean.app/api/items?populate=image",
             { method: "GET"}
         );
         const itemsJson = await items.json();
