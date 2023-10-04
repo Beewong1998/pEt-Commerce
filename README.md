@@ -15,6 +15,4 @@
  - One image broke the website because the dimensions were too small
  - Struggling to deploy the website with Strapi database
  
- Link to live project:
- https://stingray-app-gms8b.ondigitalocean.app/ 
- (At the moment still not quite sure how to add the strapi to this)
+ Link to live project: http://lnkiy.in/busybee 
